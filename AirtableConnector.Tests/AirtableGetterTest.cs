@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.Sdk;
@@ -20,7 +21,15 @@ namespace AirtableConnector.Tests
 		{
 			_output = output;
 		}
-		
+
+		[Fact]
+		public async void RetrieveDataFromTableAsyncTest()
+		{
+			Dictionary<string, List<string>> data = await Getter.RetrieveDataFromTablesAsync("Projects");
+			_output.WriteLine($"Records Returned Count: {data.Count}");
+
+			Assert.NotNull(data);
+		}
 
 		[Fact]
 		public void RetrieveDataFromProjectsTableTest()

@@ -1,8 +1,10 @@
 ﻿using AirtableApiClient;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
@@ -39,22 +41,65 @@ namespace AirtableConnector.Core
 		public Dictionary<string, List<string>> RetrieveDataFromTables(string tableName)
 		{
 			Dictionary<string, List<string>> data = new();
-			var task= Base.ListRecords(tableName);
-			task.Wait();
-			var  records = task.Result.Records;
-			foreach ( var record in records )
-			{
-				var key = record.Id;
-				var value = new List<string>();
-				foreach ( var field in record.Fields )
-				{
-					value.Add(field.Key + ": " +field.Value.ToString());
-				}
-				data.Add(key, value);
-			}
 
-            return data;
+			try
+			{
+                var task = Base.ListRecords(tableName);
+                task.Wait();
+                var records = task.Result.Records;
+                foreach (var record in records)
+                {
+                    var key = record.Id;
+                    var value = new List<string>();
+                    foreach (var field in record.Fields)
+                    {
+                        value.Add(field.Key + ": " + field.Value.ToString());
+                    }
+                    data.Add(key, value);
+                }
+
+                return data;
+            }
+			catch (AirtableApiException e) {
+                Console.WriteLine($"Error Retrieving Records from Airtable: {e.Message}");
+                return new Dictionary<string, List<string>>();
+            }
+			
 		}
+
+        // <summary>Asynchoronoys Function which calls the Airtable API, then returns all records within an Airtable table, for a specific table name</summary>
+        // <param name="tablename">The name of the table to be queired. This should a string</param>
+        // <returns></returns>A Task of type Dictionary where the keys are record IDs and the values are lists of field values for each record </returns>
+        public async Task<Dictionary<string, List<string>>> RetrieveDataFromTablesAsync(string tableName)
+        {
+            Dictionary<string, List<string>> data = new();
+
+			// ListRecords is awaitable, therefore in this case the function awaits the response from the call
+			try
+			{
+                var task = await Base.ListRecords(tableName);
+                var records = task.Records;
+                foreach (var record in records)
+                {
+                    var key = record.Id;
+                    var value = new List<string>();
+                    foreach (var field in record.Fields)
+                    {
+                        value.Add(field.Key + ": " + field.Value.ToString());
+                    }
+                    data.Add(key, value);
+                }
+
+                return data;
+            }
+			catch (AirtableApiException e)
+			{
+				Console.WriteLine($"Error Retrieving Records from Airtable: {e.Message}");
+				return new Dictionary<string, List<string>>();
+			}
+           
+        }
+
 
         // <summary>Function which gets all Project Records in Airtable</summary>
         // <returns></returns> A Dictionary where the keys are record IDs and the values are Project objects </returns>
