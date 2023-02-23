@@ -23,4 +23,10 @@
     <ProjectReference Include="..\AirtableConnector.Core\AirtableConnector.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="secrets.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -541,19 +541,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nicholas Martino\\.nuget\\packages\\": {}
+    "C:\\Users\\DavidSheehy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nicholas Martino\\source\\repos\\intelligentcity\\IntelligentCityDevTest\\AirtableConnector.Core\\AirtableConnector.Core.csproj",
+      "projectUniqueName": "C:\\Users\\DavidSheehy\\challenge\\IntelligentCityDevTest\\AirtableConnector.Core\\AirtableConnector.Core.csproj",
       "projectName": "AirtableConnector.Core",
-      "projectPath": "C:\\Users\\Nicholas Martino\\source\\repos\\intelligentcity\\IntelligentCityDevTest\\AirtableConnector.Core\\AirtableConnector.Core.csproj",
-      "packagesPath": "C:\\Users\\Nicholas Martino\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nicholas Martino\\source\\repos\\intelligentcity\\IntelligentCityDevTest\\AirtableConnector.Core\\obj\\",
+      "projectPath": "C:\\Users\\DavidSheehy\\challenge\\IntelligentCityDevTest\\AirtableConnector.Core\\AirtableConnector.Core.csproj",
+      "packagesPath": "C:\\Users\\DavidSheehy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DavidSheehy\\challenge\\IntelligentCityDevTest\\AirtableConnector.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nicholas Martino\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DavidSheehy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -604,7 +604,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

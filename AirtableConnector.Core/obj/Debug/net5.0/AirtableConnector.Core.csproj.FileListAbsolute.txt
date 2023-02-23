@@ -10,3 +10,15 @@ C:\Users\Nicholas Martino\source\repos\intelligentcity\IntelligentCityDevTest\Ai
 C:\Users\Nicholas Martino\source\repos\intelligentcity\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\refint\AirtableConnector.Core.dll
 C:\Users\Nicholas Martino\source\repos\intelligentcity\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\AirtableConnector.Core.pdb
 C:\Users\Nicholas Martino\source\repos\intelligentcity\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\ref\AirtableConnector.Core.dll
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\bin\Debug\net5.0\AirtableConnector.Core.deps.json
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\bin\Debug\net5.0\AirtableConnector.Core.dll
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\bin\Debug\net5.0\AirtableConnector.Core.pdb
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\AirtableConnector.Core.csproj.AssemblyReference.cache
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\AirtableConnector.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\AirtableConnector.Core.AssemblyInfoInputs.cache
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\AirtableConnector.Core.AssemblyInfo.cs
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\AirtableConnector.Core.csproj.CoreCompileInputs.cache
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\AirtableConnector.Core.dll
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\refint\AirtableConnector.Core.dll
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\AirtableConnector.Core.pdb
+C:\Users\DavidSheehy\challenge\IntelligentCityDevTest\AirtableConnector.Core\obj\Debug\net5.0\ref\AirtableConnector.Core.dll
