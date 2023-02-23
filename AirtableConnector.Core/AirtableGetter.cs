@@ -56,9 +56,8 @@ namespace AirtableConnector.Core
             return data;
 		}
 
-        // <summary>Function which gets all records within an Airtable table, for a specific table name</summary>
-        // <param name="tablename">The name of the table to be queired. This should a string</param>
-        // <returns></returns> A Dictionary where the keys are record IDs and the values are lists of field values for each record </returns>
+        // <summary>Function which gets all Project Records in Airtable</summary>
+        // <returns></returns> A Dictionary where the keys are record IDs and the values are Project objects </returns>
         public Dictionary<string, IntelligentProject> RetrieveDataFromProjectTable()
 
 		{
