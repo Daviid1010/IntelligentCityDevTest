@@ -45,6 +45,7 @@ namespace AirtableConnector.Core
 			try
 			{
                 var task = Base.ListRecords(tableName);
+                // this line allows a non async function to wait on the Task 
                 task.Wait();
                 var records = task.Result.Records;
                 foreach (var record in records)
@@ -132,23 +133,33 @@ namespace AirtableConnector.Core
         public Dictionary<string, IntelligentClient> RetrieveDataFromClientsTable()
         {
             Dictionary<string, IntelligentClient> data = new Dictionary<string, IntelligentClient>();
-            var task = Base.ListRecords("Clients");
-            task.Wait();
-            var records = task.Result.Records;
-            foreach (var record in records)
+
+            try
             {
-                var key = record.Id;
-                IntelligentClient project = new IntelligentClient
+                var task = Base.ListRecords("Clients");
+                task.Wait();
+                var records = task.Result.Records;
+                foreach (var record in records)
                 {
-                    Name = record.Fields["Name"].ToString(),
-					Company = record.Fields["Company"].ToString(),
-					Phone =  record.Fields["Phone"].ToString(),
-                };
-                data.Add(key, project);
+                    var key = record.Id;
+                    IntelligentClient project = new IntelligentClient
+                    {
+                        Name = record.Fields["Name"].ToString(),
+                        Company = record.Fields["Company"].ToString(),
+                        Phone = record.Fields["Phone"].ToString(),
+                    };
+                    data.Add(key, project);
+                }
+
+
+                return data;
             }
-
-
-            return data;
+            catch (AirtableApiException e)
+            {
+                Console.WriteLine($"Error Retrieving Records from Airtable: {e.Message}");
+                return new Dictionary<string, IntelligentClient>();
+            }
+            
         }
 
         // <summary>Function which gets all records within the Projects table which have a specific city</summary>
@@ -156,28 +167,37 @@ namespace AirtableConnector.Core
         // <returns></returns> A Dictionary where the keys are record IDs and the values are lists of field values for each record. Keys will be the city</returns>
         public Dictionary<string, IntelligentProject> QueryProjectsByCity(string cityName)
 		{
-			Dictionary<string, IntelligentProject> data = new();
+			Dictionary<string, IntelligentProject> data = new Dictionary<string, IntelligentProject>();
 			// filterFormula takes the format of "{field_name} = {field_value}"
 			var filterFormula = "{city} = " +  $"'{cityName}'";
-			var task = Base.ListRecords(tableName: "Projects", filterByFormula: filterFormula);
-			task.Wait();
-
-            var records = task.Result.Records;
-            foreach (var record in records)
+            try
             {
-                var key = record.Id;
-                IntelligentProject project = new IntelligentProject 
-				{
-					ProjectId = int.Parse(record.Fields["Project Id"].ToString()),
-					City = record.Fields["City"].ToString(),
-					SiteArea = int.Parse(record.Fields["Site Area"].ToString()),
-					CostPerSqft = int.Parse(record.Fields["Cost/Sqft"].ToString()),
-					GrossFloorArea = int.Parse(record.Fields["Gross Floor Area"].ToString()),
-                    TotalCost = int.Parse(record.Fields["Gross Floor Area"].ToString())
-                };
-				data.Add(key , project);
+                var task = Base.ListRecords(tableName: "Projects", filterByFormula: filterFormula);
+                task.Wait();
+
+                var records = task.Result.Records;
+                foreach (var record in records)
+                {
+                    var key = record.Id;
+                    IntelligentProject project = new IntelligentProject
+                    {
+                        ProjectId = int.Parse(record.Fields["Project Id"].ToString()),
+                        City = record.Fields["City"].ToString(),
+                        SiteArea = int.Parse(record.Fields["Site Area"].ToString()),
+                        CostPerSqft = int.Parse(record.Fields["Cost/Sqft"].ToString()),
+                        GrossFloorArea = int.Parse(record.Fields["Gross Floor Area"].ToString()),
+                        TotalCost = int.Parse(record.Fields["Gross Floor Area"].ToString())
+                    };
+                    data.Add(key, project);
+                }
+                return data;
             }
-            return data;
+            catch (AirtableApiException e)
+            {
+                Console.WriteLine($"Error Retrieving Records from Airtable: {e.Message}");
+                return new Dictionary<string, IntelligentProject>();
+            }
+			
 		}
 	}
 }
